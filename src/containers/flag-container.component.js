@@ -9,29 +9,36 @@ class CountryFlagContainer extends Component {
     }
 
     componentDidMount() {
-        console.log(this.props);
-        this.props.onGetCountries();
+        console.log(this.props.countries);
+        //this.props.onGetCountries();
     }
 
     render() {
         return (
             <div>
-                <CountryFlagList countries={this.props.countries}/>
+                <h1>hej</h1>
+                
             </div>
         );
     }
 }
 
 const mapStateToProps = state => {
+    console.log('hello')
+    console.log(state)
     return {
-        countries: state.countriesReducer.countries
+        countries: []
     };
 };
-
+/* 
 const mapDispatchToProps = dispatch => {
     return {
         onGetCountries: () => dispatch({type: actionTypes.GET_COUNTRIES})
     };
 };
+*/
+console.log( mapStateToProps);
 
-export default connect(mapStateToProps, mapDispatchToProps)(CountryFlagContainer)
+//connect(mapStateToProps)(CountryFlagContainer);
+//export default CountryFlagContainer;
+export default connect(mapStateToProps)(CountryFlagContainer)
