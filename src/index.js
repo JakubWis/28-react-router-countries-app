@@ -1,12 +1,16 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
-import store from './store/index'; 
-import App from './App';
+
+import DevTools from './DevTools';
+import store from './store/index';
+import routes from './routes'; 
 
 render(
     <Provider store={store}>
-        <App />
+        <Router history={hashHistory} routes={routes}/>
+        <DevTools />
     </Provider>,
     document.getElementById('root')
 );
